@@ -2,4 +2,4 @@ language: cpp
 compiler:
   - g++
   - clang
-script: make
+script: cd src/ && make
