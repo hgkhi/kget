@@ -10,7 +10,7 @@ using kget::ByteBlock;
 using std::vector;
 
 namespace kget {
-  vector<ByteBlock> divideByteBlocks(size_t size);
+  vector<ByteBlock> divideByteBlocks(size_t size, size_t numberParts);
 }
 
 #endif  // MANAGER_UTILITIES

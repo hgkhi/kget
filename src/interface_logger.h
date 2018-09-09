@@ -6,7 +6,7 @@
 using std::string;
 
 namespace kget {
-  class LoggerInterface
+  class ILogger
   {
     public:
       virtual void debug(const string& msg) = 0;

@@ -1,23 +1,32 @@
+/**
+ * @file http_manager.h
+ * @brief 
+ * @author Khoi Hoang
+ * @version 1.0.0
+ * @date 2018-09-09
+ */
 #ifndef HTTP_MANAGER
 #define HTTP_MANAGER
 
-#include "manager_interface.h"
-#include "logger_interface.h"
+#include "interface_manager.h"
+#include "interface_logger.h"
 
 #include <string>
+#include <unordered_map>
 
-using kget::ManagerInterface;
-using kget::LoggerInterface;
+using kget::IManager;
+using kget::ILogger;
 
 using std::string;
+using std::unordered_map;
 
 namespace kget {
-  class HttpManager : public ManagerInterface
+  class HttpManager : public IManager
   {
     public:
       HttpManager(  const string& url,
           size_t numberWorkers,
-          LoggerInterface* logger);
+          ILogger* logger);
       ~HttpManager();
       int execute();
 
@@ -26,10 +35,12 @@ namespace kget {
 
       string url;
       size_t numberWorkers;
-      LoggerInterface* logger;
+      ILogger* logger;
 
       bool flagValidUrl;
       bool flagSupportPartialRequests;
+
+      unordered_map<string, string> resHeaderMap;
   };
 };
 
